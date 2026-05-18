@@ -444,7 +444,9 @@
 </div>
 
 <script>
-// Data za tafsiri za lugha mbili
+// =========================================================================
+// 1. DATA ZA TAFSIRI ZA LUGHA MBILI (KISWAHILI & ENGLISH)
+// =========================================================================
 const tafsiri = {
     sw: {
         maelezo: "Chagua kifurushi ukipendacho na ulipie kwa akaunti yako ya simu kielektroniki.",
@@ -484,9 +486,13 @@ const tafsiri = {
     }
 };
 
+// Hifadhi ya lugha na bei ya sasa ili zifanye kazi pamoja
 let lughaYaSasa = 'sw';
 let beiYaSasaMaandishi = '1,000';
 
+// =========================================================================
+// 2. KODI INAYOBADILISHA BEI YA VIFURUSHI (CHOOSE PACKAGE)
+// =========================================================================
 function chaguaKifurushi(kiboksiIliyoguswa, kiasi, beiMaandishi, jinaEn, jinaSw) {
     let viboksiZote = document.querySelectorAll('.kiboksi');
     viboksiZote.forEach(box => box.classList.remove('active'));
@@ -496,11 +502,13 @@ function chaguaKifurushi(kiboksiIliyoguswa, kiasi, beiMaandishi, jinaEn, jinaSw)
     
     beiYaSasaMaandishi = beiMaandishi;
     
-    // Inaseti jina la button kulingana na lugha iliyopo sasa active
     let nenoLipia = tafsiri[lughaYaSasa].lipia_btn;
     document.getElementById("btn-malipo").innerHTML = `<span data-translate="lipia_btn">${nenoLipia}</span> Tsh ${beiMaandishi}`;
 }
 
+// =========================================================================
+// 3. KODI YA KUBADILISHA LUGHA (LANGUAGE SWITCHER)
+// =========================================================================
 function badilishaLugha(lugha) {
     lughaYaSasa = lugha;
     
@@ -523,6 +531,30 @@ function badilishaLugha(lugha) {
     // Kurekebisha upya button ya malipo ilinde bei iliyochaguliwa
     let nenoLipia = tafsiri[lugha].lipia_btn;
     document.getElementById("btn-malipo").innerHTML = `<span data-translate="lipia_btn">${nenoLipia}</span> Tsh ${beiYaSasaMaandishi}`;
+}
+
+// =========================================================================
+// 4. KODI YA KUSIKILIZA SMS NA KUJIJAZA VOCHA KIOTOMATIKI (WebOTP API)
+// =========================================================================
+if ('OTPCredential' in window) {
+    window.addEventListener('DOMContentLoaded', () => {
+        const inputVocha = document.getElementById('kodi_vocha');
+        if (!inputVocha) return;
+
+        const ac = new AbortController();
+        navigator.credentials.get({
+            otp: { transport: ['sms'] },
+            signal: ac.signal
+        }).then(otp => {
+            // Vocha inajijaza yenyewe hapa kwenye sanduku
+            inputVocha.value = otp.code;
+            
+            // Inajikonki yenyewe kwenye intaneti (Inabonyeza kitufe cha Unganisha kiotomatiki)
+            document.querySelector('.btn-unganisha').click();
+        }).catch(err => {
+            console.log('SMS haijasomwa au mteja amekataa:', err);
+        });
+    });
 }
 </script>
 
