@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5G Unlimited Wi-Fi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image:url(zanzibar.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .main-wrapper {
+            background: rgba(255, 255, 255, 0.90); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 25px;
+            width: 100%;
+            max-width: 420px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* Sehemu ya Vitufe vya Lugha Juu Kulia */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            background-color: rgba(0, 0, 0, 0.05);
+            border: 1px solid #ccc;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active {
+            background-color: #2e7d32;
+            color: white;
+            border-color: #2e7d32;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            margin-top: 15px; /* Inatoa nafasi kwa ajili ya kitufe cha lugha */
+        }
+
+        .wifi-logo i {
+            font-size: 55px;
+            color: #2e7d32; 
+            margin-bottom: 10px;
+        }
+
+        .heading-1 {
+            font-size: 24px;
+            margin: 0 0 8px 0;
+            color: #111;
+        }
+
+        .maelezo {
+            font-size: 14px;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .vifurushi-orodha {
+            width: 100%;
+        }
+
+        .heading-2 {
+            font-size: 18px;
+            color: #111;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .kichwa-sehemu {
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .kiboksi {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .alama-check {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #777;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: transparent;
+            font-size: 14px;
+            margin-right: 15px;
+            transition: all 0.2s ease;
+        }
+
+        .maandishi-kifurushi {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .muda {
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .bei {
+            font-size: 15px;
+            color: #111;
+            font-weight: 700;
+        }
+
+        .kiboksi.active {
+            border-color: #2e7d32;
+            background-color: #f1f8e9;
+        }
+
+        .kiboksi.active .alama-check {
+            border-color: #2e7d32;
+            background-color: #2e7d32;
+            color: white;
+        }
+
+        .kiboksi.active .muda {
+            color: #2e7d32;
+        }
+
+        .malipo-container {
+            margin-top: 25px;
+        }
+
+        .maelezo-chini {
+            font-size: 12px;
+            color: #555;
+            margin-top: -8px;
+            margin-bottom: 12px;
+        }
+
+        .lebo-namba {
+            font-size: 13px;
+            font-weight: 600;
+            color: #222;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .inline-input-button {
+            display: flex;
+            border: 2px solid #999;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #fff;
+            transition: border-color 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .inline-input-button:focus-within {
+            border-color: #2e7d32;
+            box-shadow: 0 0 6px rgba(46, 125, 50, 0.2);
+        }
+
+        .inline-input-button input {
+            flex: 1;
+            border: none;
+            padding: 14px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+        }
+
+        .inline-input-button button {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 0 18px;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background-color 0.2s;
+        }
+
+        .inline-input-button button:hover {
+            background-color: #1b5e20;
+        }
+
+        .logo-za-simu {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 12px;
+            margin-bottom: 25px;
+        }
+
+        .logo-za-simu img {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 4px;
+            filter: drop-shadow(0px 1px 3px rgba(0,0,0,0.15));
+        }
+
+        .sehemu-vocha {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px dashed rgba(0,0,0,0.15);
+        }
+
+        .input-vocha-container {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .input-vocha-container input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #999;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            outline: none;
+            background-color: #fff;
+        }
+
+        .input-vocha-container input:focus {
+            border-color: #0288d1;
+        }
+
+        .btn-unganisha {
+            background-color: #0288d1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0 20px;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-unganisha:hover {
+            background-color: #01579b;
+        }
+
+        .footer-sehemu {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .msaada-text {
+            font-size: 13px;
+            color: #2e7d32;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+
+        .msaada-text i {
+            margin-right: 5px;
+        }
+
+        .copyright-text {
+            font-size: 11px;
+            color: #666;
+            margin: 0;
+        }
+
+ 
+
+        /* ---- 1. KADI KUU (DESKTOP & SIMU) ---- */
+     .main-wrapper {
+    /* Tumerahisisha weupe kutoka 0.90 hadi 0.65 ili iwe transparent zaidi */
+    background: rgba(255, 255, 255, 0.65); 
+    backdrop-filter: blur(12px); /* Inafanya weusi/ weupe wa nyuma uwe laini */
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 25px;
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* ---- 2. MABORESHO YA SIMU (MEDIA 480px) ---- */
+@media (max-width: 480px) {
+    body {
+        padding: 15px; /* Inatengeneza nafasi ili background ionekane kwa juu na chini */
+    }
+
+    .main-wrapper {
+        padding: 18px;
+        width: 92%; /* BADILIKO KUU: Inalazimisha kadi isijae skrini nzima, sasa picha ya background itaonekana pembeni! */
+        margin: auto;
+    }
+
+    /* Font na nembo zikae sawa kwenye simu */
+    .heading-1 { font-size: 20px; }
+    .maelezo { font-size: 13px; }
+    .heading-2 { font-size: 16px; }
+    .muda, .bei { font-size: 14px; }
+    .inline-input-button input, 
+    .inline-input-button button,
+    .input-vocha-container input,
+    .btn-unganisha { font-size: 13px; }
+    .logo-za-simu img { height: 32px; }
+}
+    </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="badilishaLugha('sw')">SW</button>
+        <button class="lang-btn" onclick="badilishaLugha('en')">EN</button>
+    </div>
+
+    <div class="header">
+        <div class="wifi-logo">
+            <i class="fa-solid fa-wifi"></i>
+            <h3 class="heading-1"><strong>5G Unlimited Wi-Fi</strong></h3>
+        </div>
+        <div class="maelezo" data-translate="maelezo">
+            Chagua kifurushi ukipendacho na ulipie kwa akaunti yako ya simu kielektroniki.
+        </div>
+    </div>
+
+    <div class="vifurushi-orodha">
+        <h3 class="heading-2" data-translate="heading2"><strong>Jinsi ya kujiunga na Wi-Fi</strong></h3>
+        <p class="kichwa-sehemu" data-translate="hatua1"><strong>1. Chagua Kifurushi:</strong></p>
+        
+        <div class="kiboksi active" onclick="chaguaKifurushi(this, '1000', '1,000', 'Daily Package', 'Kifurushi cha Siku')">
+            <div class="alama-check">✓</div>
+            <div class="maandishi-kifurushi">
+                <span class="muda" data-translate="kif_siku">Kifurushi cha Siku</span>
+                <span class="bei">Tsh 1,000</span>
+            </div>
+        </div>
+
+        <div class="kiboksi" onclick="chaguaKifurushi(this, '5000', '5,000', 'Weekly Package', 'Kifurushi cha Wiki')">
+            <div class="alama-check">✓</div>
+            <div class="maandishi-kifurushi">
+                <span class="muda" data-translate="kif_wiki">Kifurushi cha Wiki</span>
+                <span class="bei">Tsh 5,000</span>
+            </div>
+        </div>
+
+        <div class="kiboksi" onclick="chaguaKifurushi(this, '10000', '10,000', 'Monthly Package', 'Kifurushi cha Mwezi')">
+            <div class="alama-check">✓</div>
+            <div class="maandishi-kifurushi">
+                <span class="muda" data-translate="kif_mwezi">Kifurushi cha Mwezi</span>
+                <span class="bei">Tsh 10,000</span>
+            </div>
+        </div>
+
+        <input type="hidden" name="kifurushi_kichaguliwa" id="kifurushi_id" value="1000">
+    </div>
+
+    <div class="malipo-container">
+        <p class="kichwa-sehemu" data-translate="hatua2"><strong>2. Lipia Kifurushi:</strong></p>
+        <p class="maelezo-chini" data-translate="maelezo_chini">Utapokea namba ya vocha kwa SMS baada ya malipo kukamilika.</p>
+
+        <label class="lebo-namba" data-translate="lebo_namba">Namba ya Simu:</label>
+        <div class="inline-input-button">
+            <input type="tel" id="namba_simu" name="namba_simu" placeholder="ingiza namba yako ya simu" maxlength="10" required>
+            <button id="btn-malipo" type="submit"><span data-translate="lipia_btn">Lipia</span> Tsh 1,000</button>
+        </div>
+    </div>
+
+    <section class="logo-za-simu">
+        <img src="mixx-by-yas.PNG" alt="Mixx-by-Yas">
+        <img src="halopesa.png" alt="halopesa">
+        <img src="Airtel-Money.png" alt="Airtel-Money">
+        <img src="m-pesa.png" alt="M-pesa">
+    </section>
+
+    <div class="sehemu-vocha">
+        <p class="kichwa-sehemu" data-translate="tayari_vocha"><strong>Tayari una Vocha?</strong></p>
+        <div class="input-vocha-container">
+            <input type="text" id="kodi_vocha" name="kodi_vocha" placeholder="Ingiza namba ya vocha hapa">
+            <button class="btn-unganisha" type="button" data-translate="unganisha_btn">Unganisha</button>
+        </div>
+    </div>
+
+    <div class="footer-sehemu">
+        <p class="msaada-text"><i class="fa-solid fa-headset"></i> <span data-translate="msaada">Unahitaji Msaada? Tupigie:</span> <strong>0777360300</strong></p>
+        <p class="copyright-text">&copy; 2026 5G Unlimited Wi-Fi. <span data-translate="haki">Haki zote zimehifadhiwa.</span></p>
+    </div>
+</div>
+
+<script>
+// Data za tafsiri za lugha mbili
+const tafsiri = {
+    sw: {
+        maelezo: "Chagua kifurushi ukipendacho na ulipie kwa akaunti yako ya simu kielektroniki.",
+        heading2: "Jinsi ya kujiunga na Wi-Fi",
+        hatua1: "1. Chagua Kifurushi:",
+        kif_siku: "Kifurushi cha Siku",
+        kif_wiki: "Kifurushi cha Wiki",
+        kif_mwezi: "Kifurushi cha Mwezi",
+        hatua2: "2. Lipia Kifurushi:",
+        maelezo_chini: "Utapokea namba ya vocha kwa SMS baada ya malipo kukamilika.",
+        lebo_namba: "Namba ya Simu:",
+        lipia_btn: "Lipia",
+        placeholder_simu: "ingiza namba yako ya simu",
+        tayari_vocha: "Tayari una Vocha?",
+        placeholder_vocha: "Ingiza namba ya vocha hapa",
+        unganisha_btn: "Unganisha",
+        msaada: "Unahitaji Msaada? Tupigie:",
+        haki: "Haki zote zimehifadhiwa."
+    },
+    en: {
+        maelezo: "Choose your preferred package and pay electronically via your mobile money account.",
+        heading2: "How to connect to Wi-Fi",
+        hatua1: "1. Select Package:",
+        kif_siku: "Daily Package",
+        kif_wiki: "Weekly Package",
+        kif_mwezi: "Monthly Package",
+        hatua2: "2. Pay for Package:",
+        maelezo_chini: "You will receive your voucher code via SMS once payment is complete.",
+        lebo_namba: "Phone Number:",
+        lipia_btn: "Pay",
+        placeholder_simu: "enter your phone number",
+        tayari_vocha: "Already have a Voucher?",
+        placeholder_vocha: "Enter voucher code here",
+        unganisha_btn: "Connect",
+        msaada: "Need Help? Call Us:",
+        haki: "All rights reserved."
+    }
+};
+
+let lughaYaSasa = 'sw';
+let beiYaSasaMaandishi = '1,000';
+
+function chaguaKifurushi(kiboksiIliyoguswa, kiasi, beiMaandishi, jinaEn, jinaSw) {
+    let viboksiZote = document.querySelectorAll('.kiboksi');
+    viboksiZote.forEach(box => box.classList.remove('active'));
+    
+    kiboksiIliyoguswa.classList.add('active');
+    document.getElementById('kifurushi_id').value = kiasi;
+    
+    beiYaSasaMaandishi = beiMaandishi;
+    
+    // Inaseti jina la button kulingana na lugha iliyopo sasa active
+    let nenoLipia = tafsiri[lughaYaSasa].lipia_btn;
+    document.getElementById("btn-malipo").innerHTML = `<span data-translate="lipia_btn">${nenoLipia}</span> Tsh ${beiMaandishi}`;
+}
+
+function badilishaLugha(lugha) {
+    lughaYaSasa = lugha;
+    
+    // Badilisha muonekano wa vitufe vya juu (Active State)
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    // Badilisha maandishi yote yenye sifa ya data-translate
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const ufunguo = element.getAttribute('data-translate');
+        if (tafsiri[lugha][ufunguo]) {
+            element.innerText = tafsiri[lugha][ufunguo];
+        }
+    });
+    
+    // Badilisha maelezo ya kuandikia (Placeholders)
+    document.getElementById('namba_simu').placeholder = tafsiri[lugha].placeholder_simu;
+    document.getElementById('kodi_vocha').placeholder = tafsiri[lugha].placeholder_vocha;
+    
+    // Kurekebisha upya button ya malipo ilinde bei iliyochaguliwa
+    let nenoLipia = tafsiri[lugha].lipia_btn;
+    document.getElementById("btn-malipo").innerHTML = `<span data-translate="lipia_btn">${nenoLipia}</span> Tsh ${beiYaSasaMaandishi}`;
+}
+</script>
+
+</body>
+</html>
