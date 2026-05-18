@@ -337,28 +337,79 @@
     position: relative;
 }
 
-/* ---- 2. MABORESHO YA SIMU (MEDIA 480px) ---- */
+/* ---- MABORESHO MAALUMU YA SIMU (MEDIA 480px) ---- */
 @media (max-width: 480px) {
     body {
-        padding: 15px; /* Inatengeneza nafasi ili background ionekane kwa juu na chini */
+        padding: 10px; /* Inapunguza padding ili kadi ipate nafasi zaidi */
     }
 
     .main-wrapper {
-        padding: 18px;
-        width: 92%; /* BADILIKO KUU: Inalazimisha kadi isijae skrini nzima, sasa picha ya background itaonekana pembeni! */
+        padding: 15px;
+        width: 94%; /* Kadi itabaki na nafasi nadhifu pembeni */
         margin: auto;
     }
 
-    /* Font na nembo zikae sawa kwenye simu */
+    /* 1. KUREKEBISHA BUTTON YA KIJANI (LIPIA) */
+    .inline-input-button {
+        flex-direction: column; /* Inalazimisha input na button zikae mstari tofauti */
+        border: none;
+        background-color: transparent;
+    }
+
+    .inline-input-button input {
+        width: 100%;
+        border: 2px solid #999;
+        border-radius: 8px;
+        padding: 12px;
+        box-sizing: border-box;
+        margin-bottom: 8px; /* Inatenganisha box na button */
+    }
+
+    .inline-input-button button {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 14px;
+        display: block;
+    }
+
+    /* 2. KUREKEBISHA BUTTON YA BLUU (UNGANISHA) */
+    .input-vocha-container {
+        flex-direction: column; /* Inalazimisha button ya unganisha ishuke chini */
+    }
+
+    .input-vocha-container input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+    }
+
+    .btn-unganisha {
+        width: 100%;
+        padding: 12px;
+        text-align: center;
+        font-size: 14px;
+        margin-top: 4px;
+    }
+
+    /* 3. KUREKEBISHA LOGO ZA SIMU ZISIONEKANE NDOGO SANA */
+    .logo-za-simu {
+        justify-content: center; /* Inaziweka katikati nadhifu */
+        gap: 15px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+
+    .logo-za-simu img {
+        height: 28px; /* Ukubwa unaofaa skrini ya simu bila kupishana */
+    }
+
+    /* Font zingine zote za kwenye simu */
     .heading-1 { font-size: 20px; }
     .maelezo { font-size: 13px; }
     .heading-2 { font-size: 16px; }
     .muda, .bei { font-size: 14px; }
-    .inline-input-button input, 
-    .inline-input-button button,
-    .input-vocha-container input,
-    .btn-unganisha { font-size: 13px; }
-    .logo-za-simu img { height: 32px; }
 }
     </style>
 </head>
