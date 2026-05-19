@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><!DOCTYPE html>
 <html lang="sw">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +12,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-image:url(zanzibar.jpg);
+            background-image: url(zanzibar.jpg);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -30,12 +25,13 @@
             min-height: 100vh;
         }
 
+        /* ---- KADI KUU (DESKTOP) ---- */
         .main-wrapper {
-            background: rgba(255, 255, 255, 0.90); 
-            backdrop-filter: blur(10px); 
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.65); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
             border-radius: 16px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
             border: 1px solid rgba(255, 255, 255, 0.4);
             padding: 25px;
             width: 100%;
@@ -74,7 +70,7 @@
         .header {
             text-align: center;
             margin-bottom: 25px;
-            margin-top: 15px; /* Inatoa nafasi kwa ajili ya kitufe cha lugha */
+            margin-top: 15px;
         }
 
         .wifi-logo i {
@@ -235,27 +231,40 @@
             background-color: #1b5e20;
         }
 
+        /* ---- MFUMO MPYA WA LOGO ZINAZOTEMBEA (MARQUEE CSS) ---- */
         .logo-za-simu {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            justify-content: flex-start;
-            margin-top: 12px;
+            overflow: hidden;
+            padding: 10px 0;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+            margin-top: 15px;
             margin-bottom: 25px;
+            border-top: 1px dashed rgba(0,0,0,0.15);
+            border-bottom: 1px dashed rgba(0,0,0,0.15);
         }
 
-        .logo-za-simu img {
-            height: 38px;
+        .logo-slide {
+            display: inline-block;
+            animation: tembeaLogo 12s linear infinite;
+        }
+
+        .logo-slide img {
+            height: 35px;
             width: auto;
-            object-fit: contain;
-            border-radius: 4px;
+            margin: 0 20px;
+            vertical-align: middle;
             filter: drop-shadow(0px 1px 3px rgba(0,0,0,0.15));
+        }
+
+        @keyframes tembeaLogo {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
 
         .sehemu-vocha {
             margin-top: 25px;
             padding-top: 20px;
-            border-top: 2px dashed rgba(0,0,0,0.15);
         }
 
         .input-vocha-container {
@@ -319,98 +328,74 @@
             margin: 0;
         }
 
- 
+        /* ---- MABORESHO MAALUMU YA SIMU (MEDIA 480px) ---- */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
 
-        /* ---- 1. KADI KUU (DESKTOP & SIMU) ---- */
-     .main-wrapper {
-    /* Tumerahisisha weupe kutoka 0.90 hadi 0.65 ili iwe transparent zaidi */
-    background: rgba(255, 255, 255, 0.65); 
-    backdrop-filter: blur(12px); /* Inafanya weusi/ weupe wa nyuma uwe laini */
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 16px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    padding: 25px;
-    width: 100%;
-    max-width: 420px;
-    box-sizing: border-box;
-    position: relative;
-}
+            .main-wrapper {
+                padding: 15px;
+                width: 94%;
+                margin: auto;
+            }
 
-/* ---- MABORESHO MAALUMU YA SIMU (MEDIA 480px) ---- */
-@media (max-width: 480px) {
-    body {
-        padding: 10px; /* Inapunguza padding ili kadi ipate nafasi zaidi */
-    }
+            /* 1. KUREKEBISHA BUTTON YA KIJANI (LIPIA) */
+            .inline-input-button {
+                flex-direction: column;
+                border: none;
+                background-color: transparent;
+            }
 
-    .main-wrapper {
-        padding: 15px;
-        width: 94%; /* Kadi itabaki na nafasi nadhifu pembeni */
-        margin: auto;
-    }
+            .inline-input-button input {
+                width: 100%;
+                border: 2px solid #999;
+                border-radius: 8px;
+                padding: 12px;
+                box-sizing: border-box;
+                margin-bottom: 8px;
+            }
 
-    /* 1. KUREKEBISHA BUTTON YA KIJANI (LIPIA) */
-    .inline-input-button {
-        flex-direction: column; /* Inalazimisha input na button zikae mstari tofauti */
-        border: none;
-        background-color: transparent;
-    }
+            .inline-input-button button {
+                width: 100%;
+                padding: 12px;
+                border-radius: 8px;
+                text-align: center;
+                font-size: 14px;
+                display: block;
+            }
 
-    .inline-input-button input {
-        width: 100%;
-        border: 2px solid #999;
-        border-radius: 8px;
-        padding: 12px;
-        box-sizing: border-box;
-        margin-bottom: 8px; /* Inatenganisha box na button */
-    }
+            /* 2. KUREKEBISHA BUTTON YA BLUU (UNGANISHA) */
+            .input-vocha-container {
+                flex-direction: column;
+            }
 
-    .inline-input-button button {
-        width: 100%;
-        padding: 12px;
-        border-radius: 8px;
-        text-align: center;
-        font-size: 14px;
-        display: block;
-    }
+            .input-vocha-container input {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 12px;
+            }
 
-    /* 2. KUREKEBISHA BUTTON YA BLUU (UNGANISHA) */
-    .input-vocha-container {
-        flex-direction: column; /* Inalazimisha button ya unganisha ishuke chini */
-    }
+            .btn-unganisha {
+                width: 100%;
+                padding: 12px;
+                text-align: center;
+                font-size: 14px;
+                margin-top: 4px;
+            }
 
-    .input-vocha-container input {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 12px;
-    }
+            /* 3. KUREKEBISHA LOGO ZINAZOTEMBEA KWENYE SIMU */
+            .logo-slide img {
+                height: 26px;
+                margin: 0 15px;
+            }
 
-    .btn-unganisha {
-        width: 100%;
-        padding: 12px;
-        text-align: center;
-        font-size: 14px;
-        margin-top: 4px;
-    }
-
-    /* 3. KUREKEBISHA LOGO ZA SIMU ZISIONEKANE NDOGO SANA */
-    .logo-za-simu {
-        justify-content: center; /* Inaziweka katikati nadhifu */
-        gap: 15px;
-        margin-top: 15px;
-        margin-bottom: 20px;
-    }
-
-    .logo-za-simu img {
-        height: 28px; /* Ukubwa unaofaa skrini ya simu bila kupishana */
-    }
-
-    /* Font zingine zote za kwenye simu */
-    .heading-1 { font-size: 20px; }
-    .maelezo { font-size: 13px; }
-    .heading-2 { font-size: 16px; }
-    .muda, .bei { font-size: 14px; }
-}
+            /* Font zingine zote za kwenye simu */
+            .heading-1 { font-size: 20px; }
+            .maelezo { font-size: 13px; }
+            .heading-2 { font-size: 16px; }
+            .muda, .bei { font-size: 14px; }
+        }
     </style>
 </head>
 <body>
@@ -474,10 +459,16 @@
     </div>
 
     <section class="logo-za-simu">
-        <img src="mixx-by-yas.PNG" alt="Mixx-by-Yas">
-        <img src="halopesa.png" alt="halopesa">
-        <img src="Airtel-Money.png" alt="Airtel-Money">
-        <img src="m-pesa.png" alt="M-pesa">
+        <div class="logo-slide">
+            <img src="mixx-by-yas.PNG" alt="Mixx-by-Yas">
+            <img src="halopesa.png" alt="halopesa">
+            <img src="Airtel-Money.png" alt="Airtel-Money">
+            <img src="m-pesa.png" alt="M-pesa">
+            <img src="mixx-by-yas.PNG" alt="Mixx-by-Yas">
+            <img src="halopesa.png" alt="halopesa">
+            <img src="Airtel-Money.png" alt="Airtel-Money">
+            <img src="m-pesa.png" alt="M-pesa">
+        </div>
     </section>
 
     <div class="sehemu-vocha">
@@ -537,7 +528,6 @@ const tafsiri = {
     }
 };
 
-// Hifadhi ya lugha na bei ya sasa ili zifanye kazi pamoja
 let lughaYaSasa = 'sw';
 let beiYaSasaMaandishi = '1,000';
 
@@ -563,11 +553,9 @@ function chaguaKifurushi(kiboksiIliyoguswa, kiasi, beiMaandishi, jinaEn, jinaSw)
 function badilishaLugha(lugha) {
     lughaYaSasa = lugha;
     
-    // Badilisha muonekano wa vitufe vya juu (Active State)
     document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
     
-    // Badilisha maandishi yote yenye sifa ya data-translate
     document.querySelectorAll('[data-translate]').forEach(element => {
         const ufunguo = element.getAttribute('data-translate');
         if (tafsiri[lugha][ufunguo]) {
@@ -575,11 +563,9 @@ function badilishaLugha(lugha) {
         }
     });
     
-    // Badilisha maelezo ya kuandikia (Placeholders)
     document.getElementById('namba_simu').placeholder = tafsiri[lugha].placeholder_simu;
     document.getElementById('kodi_vocha').placeholder = tafsiri[lugha].placeholder_vocha;
     
-    // Kurekebisha upya button ya malipo ilinde bei iliyochaguliwa
     let nenoLipia = tafsiri[lugha].lipia_btn;
     document.getElementById("btn-malipo").innerHTML = `<span data-translate="lipia_btn">${nenoLipia}</span> Tsh ${beiYaSasaMaandishi}`;
 }
@@ -597,10 +583,7 @@ if ('OTPCredential' in window) {
             otp: { transport: ['sms'] },
             signal: ac.signal
         }).then(otp => {
-            // Vocha inajijaza yenyewe hapa kwenye sanduku
             inputVocha.value = otp.code;
-            
-            // Inajikonki yenyewe kwenye intaneti (Inabonyeza kitufe cha Unganisha kiotomatiki)
             document.querySelector('.btn-unganisha').click();
         }).catch(err => {
             console.log('SMS haijasomwa au mteja amekataa:', err);
