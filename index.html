@@ -232,35 +232,36 @@
         }
 
         /* ---- MFUMO MPYA WA LOGO ZINAZOTEMBEA (MARQUEE CSS) ---- */
-        .logo-za-simu {
-            overflow: hidden;
-            padding: 10px 0;
-            white-space: nowrap;
-            position: relative;
-            width: 100%;
-            margin-top: 15px;
-            margin-bottom: 25px;
-            border-top: 1px dashed rgba(0,0,0,0.15);
-            border-bottom: 1px dashed rgba(0,0,0,0.15);
-        }
+  .logo-za-simu {
+    overflow: hidden;
+    padding: 15px 0;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    border-top: 1px dashed rgba(0,0,0,0.15);
+    border-bottom: 1px dashed rgba(0,0,0,0.15);
+    /* Nimeondoa background: #ffffff; ili irudi ile ya zamani */
+    background: transparent; 
+}
 
-        .logo-slide {
-            display: inline-block;
-            animation: tembeaLogo 12s linear infinite;
-        }
+.logo-slide {
+    display: flex;
+    width: fit-content;
+    animation: tembeaLogo 15s linear infinite;
+    will-change: transform;
+}
 
-        .logo-slide img {
-            height: 35px;
-            width: auto;
-            margin: 0 20px;
-            vertical-align: middle;
-            filter: drop-shadow(0px 1px 3px rgba(0,0,0,0.15));
-        }
+.logo-slide img {
+    height: 35px;
+    width: auto;
+    margin: 0 30px;
+    flex-shrink: 0;
+}
 
-        @keyframes tembeaLogo {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
+@keyframes tembeaLogo {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
 
         .sehemu-vocha {
             margin-top: 25px;
