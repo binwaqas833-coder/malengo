@@ -191,13 +191,10 @@
         }
 
         .inline-input-button {
-            display: flex;
-            border: 2px solid #999;
+            flex-direction: column;
+            border: none;
             border-radius: 8px;
-            overflow: hidden;
-            background-color: #fff;
-            transition: border-color 0.3s ease;
-            margin-bottom: 10px;
+            background-color: transparent;
         }
 
         .inline-input-button:focus-within {
@@ -206,19 +203,24 @@
         }
 
         .inline-input-button input {
-            flex: 1;
-            border: none;
+            width: 100%;
+            border: 2px solid #999;
+            border-radius: 8px;
             padding: 14px;
-            font-size: 15px;
+            box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-            outline: none;
+            margin-bottom: 8px;
         }
 
         .inline-input-button button {
+            width: 100%;
             background-color: #2e7d32;
             color: white;
             border: none;
-            padding: 0 18px;
+            border-radius: 8px;
+            display: block;
+            text-align: center;
+            padding: 12px;
             font-size: 14px;
             font-weight: bold;
             font-family: 'Poppins', sans-serif;
@@ -464,6 +466,7 @@
             .heading-2 { font-size: 16px; }
             .muda, .bei { font-size: 14px; }
         }
+        
     </style>
 </head>
 <body>
